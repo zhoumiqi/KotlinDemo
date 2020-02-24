@@ -35,6 +35,10 @@ object BasicSyntax {
         val triangle = Triangle(3.0, 4.0, 5.0)
         println("Area of rectangle is ${rectangle.calculateArea()}, its perimeter is ${rectangle.perimeter}")
         println("Area of triangle is ${triangle.calculateArea()}, its perimeter is ${triangle.perimeter}")
+        val fourAngle = FourAngle(2.3,3.4,4.5)
+        fourAngle.calculate()
+        println(fourAngle.perimeter)
+        fourAngle.onClick()
     }
 
     private fun add(a: Int, b: Int): Int {

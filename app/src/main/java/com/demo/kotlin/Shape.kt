@@ -1,4 +1,6 @@
 package com.demo.kotlin
 
-interface Shape {
+abstract class Shape(private val point:List<Double>) {
+    val perimeter:Double get() = point.sum()
+    abstract fun calculate():Int
 }
