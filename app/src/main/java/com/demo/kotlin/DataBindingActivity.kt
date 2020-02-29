@@ -12,11 +12,10 @@ import com.demo.kotlin.databinding.ActivityDataBindingBinding
  * https://kotlinlang.org/docs/tutorials/android-frameworks.html
  */
 class DataBindingActivity : AppCompatActivity() {
-    var user: User? = null
+    private var user: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_data_binding)
         val binding: ActivityDataBindingBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_data_binding)
         user = User(ObservableField("Lucy"), ObservableField("12345"))
