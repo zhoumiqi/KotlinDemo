@@ -1,6 +1,5 @@
 package com.demo.kotlin
 
-import MyApplication
 import android.view.LayoutInflater
 import android.widget.Button
 import androidx.constraintlayout.solver.widgets.Rectangle
