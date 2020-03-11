@@ -18,7 +18,14 @@ public class FunctionTest {
         HttpUtils.getHost();
         String apiKey = GlobalStaticKt.API_KEY;
         //java类中调用kotlin companion object方法需要通过Companion对象来间接调用
-        GlobalStaticKt.goToPage(MyApplication.Companion.getInstance(),DataBindingActivity.class,null);
+//        GlobalStaticKt.goToPage(MyApplication.Companion.getInstance(),DataBindingActivity.class,null);
+        Const.InnerStaticClass.INSTANCE.test();
+        new Const();
+        new Const.InnerClass();
+        Const.Companion.getHost();
+        String name = new ConstructorModel("Jack", 23).getName();
+        ConstructorModel constructorModel = new ConstructorModel("", 23, 1);
+        System.out.println(constructorModel.getAge());
     }
 
 }

@@ -14,7 +14,11 @@ class HttpUtils {
         }
         @JvmStatic
         fun getHost(){
-
+            Const.InnerStaticClass.apply {
+                println("this is a static inner class")
+            }
+            val innerClass = Const.InnerClass()
+            val innerClass2 = Const().InnerClass2()
         }
     }
 }
