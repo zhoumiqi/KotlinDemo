@@ -51,4 +51,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+
+}
+
+fun main(args:Array<String>){
+println("kotlin invoke main method should define out of a class or in the companion object")
 }

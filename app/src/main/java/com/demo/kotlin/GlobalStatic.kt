@@ -17,3 +17,7 @@ fun <T> goToPage(context: Context, clazz: Class<T>, bundle: Bundle) {
     intent.putExtra("bundle", bundle)
     context.startActivity(intent)
 }
+
+fun main(args:Array<String>){
+  println("this is a test")
+}

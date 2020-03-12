@@ -26,6 +26,7 @@ public class FunctionTest {
         String name = new ConstructorModel("Jack", 23).getName();
         ConstructorModel constructorModel = new ConstructorModel("", 23, 1);
         System.out.println(constructorModel.getAge());
+
     }
 
 }

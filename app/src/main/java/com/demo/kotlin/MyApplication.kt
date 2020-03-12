@@ -5,7 +5,11 @@ import android.util.Log
 import com.demo.kotlin.util.Const
 import com.demo.kotlin.util.DateUtils
 
-class MyApplication : Application() {
+/**
+ * constructor 私有化
+ * 如果你想要确保你的类不被其他代码实例化，必须把构造方法标记为 private
+ */
+class MyApplication private constructor() : Application() {
     //使用陪伴对象来实现静态方法
     companion object {
         const val APP_KEY: String = "app_key"
