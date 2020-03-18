@@ -3,10 +3,12 @@ package com.demo.kotlin
 /**
  * 构造方法演示
  * 1、主构造方法(primary constructor),跟在类名后面,没有方法体,只能有一个主构造方法
+ * 主构造方法表明构造方法的参数，以及定义使用这些参数的初始化的属性
  * 主构造方法中的属性默认是public的，所以可以用private 修饰，这样属性可以不被直接访问
  *
  * 2、次(从)构造方法(secondary constructor) 必须直接或间接调用主构造方法
  *【this是调用自己的，super是调用父类的】
+ * "val" 表示相应的属性会用构造方法的参数来初始化
  */
 class ConstructorModel constructor(val name: String = "Lucy") {
     constructor(name: String, age: Int, gender: Int, address: String) : this(name) {}
