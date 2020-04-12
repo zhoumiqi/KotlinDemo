@@ -8,8 +8,9 @@ import com.demo.kotlin.util.DateUtils
 /**
  * constructor 私有化
  * 如果你想要确保你的类不被其他代码实例化，必须把构造方法标记为 private
+ * 【但是私有化会构造方法报错，无法初始化application】
  */
-class MyApplication private constructor() : Application() {
+class MyApplication : Application() {
     //使用陪伴对象来实现静态方法
     companion object {
         const val APP_KEY: String = "app_key"
@@ -32,7 +33,7 @@ class MyApplication private constructor() : Application() {
         Log.d(DateUtils.TAG, "MyApplication onCreate,and extra = " + DateUtils.extra)
     }
 
-    fun init(){
+    fun init() {
         //kotlin中可以直接访问全局申明的常量(java中是类Kt.静态方法)
         val apiKey = API_KEY
     }
