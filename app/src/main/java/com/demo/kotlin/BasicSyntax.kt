@@ -5,6 +5,7 @@ import android.widget.Button
 import androidx.constraintlayout.solver.widgets.Rectangle
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
+import java.io.File
 import java.util.*
 
 /**
@@ -14,6 +15,10 @@ import java.util.*
 object BasicSyntax {
     private val array = intArrayOf(1, 2, 3, 4)
     private val user: User = User(ObservableField("Lucy"), ObservableField("12345"))
+    val name by lazy {
+
+    }
+
     @JvmStatic
     fun main(args: Array<String>) {
         val items = listOf("hello", "word")
@@ -50,7 +55,92 @@ object BasicSyntax {
         testWith()
         testRun()
         testApply()
+        //只读list Read-only list
+        val list = listOf("a", "b", "c")
+        //只读map Read-only map
+        val map = mapOf("a" to 1, "b" to 2, "c" to 3)
+        for ((k, v) in map) {
+            println("$k -> $v")
+        }
+        testMap()
+        ifNotNullShortHand()
+        ifNotNullElseShortHand()
+        ifNullExecuteStatement()
+        executeIfNotNull()
+        getFirstItemOrNull()
     }
+
+    private fun getFirstItemOrNull() {
+
+
+    }
+
+    private fun executeIfNotNull() {
+
+        val list : List<String>? = listOf("null","yes","hello","world")
+        list?.let {
+            println(it[0])
+        }
+    }
+
+    /**
+     * 如果为null就执行语句
+     */
+    private fun ifNullExecuteStatement() {
+        //executing a statement if null
+        val values = mapOf("key1" to "values","key2" to "value2")
+//        var value1 = values["key3"] ?: throw Exception("value not found when key3")
+        var value2 = values["key4"] ?: printTime()
+        //以上表达式等价于以下内容
+        val valueTest:String? = values["key1"]
+        if (valueTest != null) {
+            var value1 = valueTest
+        } else {
+            //执行表达式
+            throw Exception("value not found when key3")
+        }
+
+    }
+    private fun printTime(){
+        println("this time is ${System.currentTimeMillis()}")
+    }
+
+    /**
+     * 如果非空 else 的简略表达式
+     */
+    private fun ifNotNullElseShortHand(){
+        val list = File("test").listFiles()
+        val isNull = list == null
+        println(isNull)
+        val size = list?.size
+        println("size = $size")
+        println(list?.size ?:"is empty")
+        val index :Int? = null
+
+
+
+    }
+
+    /**
+     * 如果非空 的简略表达式
+     */
+    private fun ifNotNullShortHand(){
+        val list = File("test").listFiles()
+        println(list?.size)
+    }
+
+    /**
+     * 测试可变map集合的初始化以及遍历
+     */
+    private fun testMap() {
+        var map = mutableMapOf<String, Any>()
+        map.put("key1", "value1")
+        map["key2"] = 2
+        for ((key, value) in map) {
+            println("key=$key,value=$value")
+        }
+    }
+
 
     /**
      * apply函数和run函数很像，唯一不同点就是它们各自返回的值不一样，
@@ -59,17 +149,17 @@ object BasicSyntax {
      * 2、动态inflate出一个XML的View的时候需要给View绑定数据也会用到
      */
     private fun testApply() {
-        val resource = MyApplication.getInstance().resources
+//        val resource = MyApplication.getInstance().resources
 //        resource.obtainTypedArray(123).apply {
 //            this.getColor(R.color.colorPrimary, Color.RED)
 //            this.getDimension(R.dimen.activity_horizontal_margin,12)
 //            recycle()
 //        }
-        val view = LayoutInflater.from(MyApplication.getInstance())
-            .inflate(R.layout.activity_login, null)
-            .apply {
-                findViewById<Button>(R.id.btn_login).text = "登录"
-            }
+//        val view = LayoutInflater.from(MyApplication.getInstance())
+//            .inflate(R.layout.activity_login, null)
+//            .apply {
+//                findViewById<Button>(R.id.btn_login).text = "登录"
+//            }
     }
 
     /**
