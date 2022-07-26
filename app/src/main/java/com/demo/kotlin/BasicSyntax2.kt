@@ -1,5 +1,7 @@
 package com.demo.kotlin
 
+import java.util.*
+
 /**
  * ref:https://kotlinlang.org/docs/basic-syntax.html
  */
@@ -91,6 +93,14 @@ class BasicSyntax2 {
         }
         //等价于
         //list.contains("world")
+    }
+    //实用lambda表达式过滤和映射集合
+    fun lambdaCollection(){
+        val list = listOf("avocado", "pear", "tiger", "apple")
+        list.filter { it.startsWith("a") }
+            .sortedBy { it }
+            .map { it.toUpperCase(Locale.ROOT) }
+            .forEach{println(it)}
     }
 
 }
